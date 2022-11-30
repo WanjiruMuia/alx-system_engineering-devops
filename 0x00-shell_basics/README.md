@@ -1,1 +1,1 @@
-0x00. Shell, basics 
+a script that changes the working directory to the user’s home directory.
