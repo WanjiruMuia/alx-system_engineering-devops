@@ -1,1 +1,1 @@
-task 1. What’s in there? 
+current directory contents in a long format
