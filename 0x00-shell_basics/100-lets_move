@@ -1,2 +1,2 @@
 #!/bin/bash
-mv src/*[A-Z]*/tmpt/u
+mv [[:upper:]]* /tmp/u
