@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 @!/bin/bash
 echo "Hello, World" 
+=======
+>>>>>>> 344cfb588e546be4967b046325b19f2f2a22f9ba
 #!/bin/bash
  echo "Hello, World" 
