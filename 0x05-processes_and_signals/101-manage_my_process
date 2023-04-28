@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Set the path to the manage_my_process script
 MANAGE_MY_PROCESS_SCRIPT="/path/to/manage_my_process"
