@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-# comments go here!
-# trap: receive signal
-echo $$ >> /var/run/holbertonscript.pid
-trap "echo Y U no love me?!" SIGINT
-trap "echo I hate the kill command && rm -rf /var/run/holbertonscript.pid; exit" SIGTERM SIGQUIT
-while :
-do
-	echo "To infinity and beyond"
-	sleep 2
+# Create PID file
+echo $$ > /var/run/myscript.pid
+
+# Trap signals and define signal handlers
+trap 'echo "I hate the kill command"' SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+trap 'rm -f /var/run/myscript.pid; exit' SIGQUIT SIGTERM
+
+# Display message indefinitely
+while true; do
+    echo "To infinity and beyond"
+    sleep 1
 done
