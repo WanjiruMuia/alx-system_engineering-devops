@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Set the path to the manage_my_process script
+MANAGE_MY_PROCESS_SCRIPT="/path/to/manage_my_process"
+
+# Define functions to start, stop, and restart the process
+start_process() {
+    # Start the process and save its PID to a file
+    $MANAGE_MY_PROCESS_SCRIPT &
+    echo $! > /var/run/my_process.pid
+    echo "manage_my_process started"
+}
+
+stop_process() {
+    # Stop the process and delete the PID file
+    kill $(cat /var/run/my_process.pid)
+    rm -f /var/run/my_process.pid
+    echo "manage_my_process stopped"
+}
+
+restart_process() {
+    # Restart the process and save its new PID to a file
+    stop_process
+    start_process
+    echo "manage_my_process restarted"
+}
+
+# Check the command-line argument and call the appropriate function
+case "$1" in
+    start)
+        start_process
+        ;;
+    stop)
+        stop_process
+        ;;
+    restart)
+        restart_process
+        ;;
+    *)
+        echo "Usage: manage_my_process {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0
+
