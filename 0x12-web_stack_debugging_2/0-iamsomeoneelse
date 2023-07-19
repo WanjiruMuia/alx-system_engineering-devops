@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
-#Run software as another user
+# Run software as another user
+
+# Check if an argument is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <username>"
+    exit 1
+fi
+
+# Use the provided username to run 'whoami' as that user
 sudo -u "$1" whoami
