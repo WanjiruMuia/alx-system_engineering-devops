@@ -1,4 +1,17 @@
-#!/usr/bin/env bash
-#run a command as an especific user
+#!/bin/bash
+#run a command as a specific user
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <username>"
+    exit 1
+fi
 
-sudo -u "$1" whoami
+username="$1"
+
+# Check if the user exists
+if id "$username" &>/dev/null; then
+    # Run the whoami command under the specified user
+    sudo -u "$username" whoami
+else
+    echo "Error: User '$username' does not exist."
+    exit 1
+fi
