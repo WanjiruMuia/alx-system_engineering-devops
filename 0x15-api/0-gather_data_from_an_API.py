@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""script using this REST API, for a given employee ID,
+"""Script using this REST API, for a given employee ID,
 returns information about his/her TODO list progress."""
+
 import requests as r
 
 if __name__ == '__main__':
