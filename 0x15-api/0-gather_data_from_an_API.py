@@ -5,6 +5,10 @@ import requests as r
 import sys
 
 if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print("Usage: python script.py <employee_id>")
+        sys.exit(1)
+
     url = 'https://jsonplaceholder.typicode.com/'
     usr_id = r.get(url + 'users/{}'.format(sys.argv[1])).json()
     to_do = r.get(url + 'todos', params={'userId': sys.argv[1]}).json()
